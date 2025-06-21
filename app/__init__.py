@@ -1,10 +1,8 @@
 import os
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-
-db = SQLAlchemy()
-migrate = Migrate()
+from .extensions import db, migrate
+from .auth import auth_bp
+from .main import main_bp
 
 def create_app(test_config=None):
     # create and configure the app
@@ -31,6 +29,7 @@ def create_app(test_config=None):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    from app import models
+    app.register_blueprint(main_bp)
+    app.register_blueprint(auth_bp)
 
     return app
