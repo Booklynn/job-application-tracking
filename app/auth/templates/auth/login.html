@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('auth.static', filename='login.css') }}">
+{% endblock %}
+
+{% block title %}Login - {{ super() }}{% endblock %}
+
+{% block content %}
+    <div class="login-form">
+        <form method="POST" action="{{ url_for('auth.login') }}">
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+{% endblock %}
