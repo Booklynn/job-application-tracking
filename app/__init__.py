@@ -4,6 +4,9 @@ from .extensions import db, migrate
 from .auth import auth_bp
 from .main import main_bp
 
+from app.auth.models import User
+from app.main.models import JobApplication
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)

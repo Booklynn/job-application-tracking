@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 
 class JobApplication(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     position = db.Column(db.String(100), nullable=False)
     job_function = db.Column(db.String(100), nullable=False)
     company = db.Column(db.String(100), nullable=False)
