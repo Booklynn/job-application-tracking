@@ -46,7 +46,7 @@ Run the local development application with:
 python run.py
 ```
 
-To seed data, create **instance/config.py** with the following content:
+To seed data, create **config.py** with the following content:
 
 ```python
 ADMIN_USERNAME = 'admin'
